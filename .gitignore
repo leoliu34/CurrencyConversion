@@ -1,0 +1,11 @@
+# Sass Component
+.sass-cache/
+*.css.map
+
+# Npm Component
+
+# Dependency directories
+node_modules/
+
+# App Component
+app/
