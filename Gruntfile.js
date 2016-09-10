@@ -28,8 +28,9 @@ module.exports = function(grunt) {
 	    	// more options here if you want to override JSHint defaults
 	    		globals: {
 	      			console: true,
-	      			module: true
-	    		}
+	      			module: true,
+	    		},
+	    		esversion: 6
 	  		}
 		},
 		watch: {
@@ -46,6 +47,13 @@ module.exports = function(grunt) {
         			ext: '.css'
       			}]
     		}
+  		},
+  		copy: {
+  			main: {
+  				files: [
+  					{expand: true, flatten: true, src: ['src/templates/*'], dest: 'app/templates/', filter: 'isFile'}
+  				]
+  			}
   		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -53,6 +61,7 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-watch');
   	grunt.loadNpmTasks('grunt-contrib-concat');
   	grunt.loadNpmTasks('grunt-contrib-sass');
+  	grunt.loadNpmTasks('grunt-contrib-copy');
 
-  	grunt.registerTask('default', ['jshint', 'sass', 'concat', 'uglify']);
+  	grunt.registerTask('default', ['jshint', 'copy', 'sass', 'concat', 'uglify']);
 };

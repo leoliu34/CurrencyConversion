@@ -10,33 +10,17 @@
 </head>
 <body ng-app="conversionApp">
 	<div ng-controller="conversionCtrl">
-		<table>
+		<div class='heading'>
 			<caption>Currency Converter</caption>
-			<tbody>
-				<tr>
-					<td>Type in amount and select Currency:</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="text" placeholder="0.00" ng-model="firstCurVal" ng-change="calculateCurrency()"/>
-					</td>
-					<td>
-						<select name="firstCurSelect" ng-options="option.name for option in currencyData.currencyOptions track by option.id" ng-model='currencyData.firstSelectedOption' ng-change="calculateCurrency()"></select>
-					</td>		
-				</tr>
-				<tr>
-					<td>Converted amount:</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="text" placeholder="0.00" ng-model="secoundCurVal" ng-change="calculateCurrency()"/>
-					</td>
-					<td>
-						<select name="secoundCurSelect" ng-options="option.name for option in currencyData.currencyOptions track by option.id" ng-model='currencyData.secoundSelectedOption' ng-change='calculateCurrency()'></select>
-					</td>		
-				</tr>
-			</tbody>
-		</table>
+			<div class="title">
+				Type in amount and select Currency:
+			</div>
+			<currency-row></currency-row>
+			<div class="title">
+				Converted Value:
+			</div>
+			<currency-row></currency-row>
+		</div>
 	</div>
 </body>
 </html>
