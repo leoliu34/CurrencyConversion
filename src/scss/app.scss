@@ -1,3 +1,98 @@
+@import 'constants';
+
+// Tablet Grid Layout
+@media screen and (min-width: 600px) {
+	.col-m-1 {width: $baseWidth;}
+	.col-m-2 {width: $baseWidth * 2;}
+	.col-m-3 {width: $baseWidth * 3;}
+	.col-m-4 {width: $baseWidth * 4;}
+	.col-m-5 {width: $baseWidth * 5;}
+	.col-m-6 {width: $baseWidth * 6;}
+	.col-m-7 {width: $baseWidth * 7;}
+	.col-m-8 {width: $baseWidth * 8;}
+	.col-m-9 {width: $baseWidth * 9;}
+	.col-m-10 {width: $baseWidth * 10;}
+	.col-m-11 {width: $baseWidth * 11;}
+	.col-m-12 {width: $baseWidth * 12;}
+}
+
+// Desktop Grid Layout
+@media screen and (min-width: 768px) {
+	.col-1 {width: $baseWidth;}
+	.col-2 {width: $baseWidth * 2;}
+	.col-3 {width: $baseWidth * 3;}
+	.col-4 {width: $baseWidth * 4;}
+	.col-5 {width: $baseWidth * 5;}
+	.col-6 {width: $baseWidth * 6;}
+	.col-7 {width: $baseWidth * 7;}
+	.col-8 {width: $baseWidth * 8;}
+	.col-9 {width: $baseWidth * 9;}
+	.col-10 {width: $baseWidth * 10;}
+	.col-11 {width: $baseWidth * 11;}
+	.col-12 {width: $baseWidth * 12;}
+}
+
+// Mobile Grid Layout
+@media screen and (max-width: 600px) {
+	[class*='col-'] {
+		width: 100%;
+	}
+}
+
+// Mixins
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0.5em;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+	h1 {
+		line-height: 1.1;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.convertor {
+
+		.header {
+			font-size: 14px;
+			font-weight: normal;
+			margin: 0.5em 0;
+		}
+
+		.currency-row {
+
+			.currency-field, .currency-dropdown {
+				margin-right: 0.5em;
+				display: inline;
+
+				input, select{
+					background: transparent;
+				    padding: 5px;
+				    border: 1px solid #ccc;
+				    @include border-radius(7px);
+				}
+
+				input:focus, select:focus{
+					box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+					border-color: #66AFE9;
+					outline: none;
+				}
+			}
+		}
+	}
+}
+
 div {
 	.test {
 		font-size: 50px;

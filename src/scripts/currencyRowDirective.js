@@ -53,7 +53,7 @@ app.controller('currencyRowCtrl', function($scope, $rootScope, $filter, exchange
 
 	var directive = function () {
 		return {
-			template: '<div class="currencyRow"><currency-field currency-value="currentCurrency.value" id={{rowID}}></currency-field>' + 
+			template: '<div class="currency-row"><currency-field currency-value="currentCurrency.value" id={{rowID}}></currency-field>' + 
 			'<currency-dropdown id={{rowID}} currency-type="currentCurrency.data"></currency-dropdown></div>',
 			restrict: 'E',
 			controller: 'currencyRowCtrl',
