@@ -1,11 +1,8 @@
 app.factory('exchangeRateService', ['$http', function($http) {
 	var exchangeRateData = {};
 	return {
-		calcExchangeRate: function (base, target){
+		getExchangeRate: function (base){
 			var httpCallParameters = 'base=' + base;
-			if (base == 'EUR') {
-				httpCallParameters = 'symbols=' + target;
-			}	
 			return $http({
 				method: 'GET',
 				url: 'http://api.fixer.io/latest?' + httpCallParameters,
@@ -19,6 +16,6 @@ app.factory('exchangeRateService', ['$http', function($http) {
 	      		{id: '3', name: 'EUR'}
 			];
 			return currencyOptions;
-		}
+		},
 	};
 }]);

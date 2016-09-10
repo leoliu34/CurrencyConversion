@@ -35,7 +35,7 @@ app.controller('currencyRowCtrl', function($scope, $rootScope, $filter, exchange
 	$scope.init();
 
 	$scope.calculateCurrency = function(baseValue, baseType, targetType) {
-		var exchangeRatePr = exchangeRateService.calcExchangeRate(baseType, targetType);
+		var exchangeRatePr = exchangeRateService.getExchangeRate(baseType);
 		exchangeRatePr.then(function (response) {
 			var exchangeRate = Number(response.data.rates[targetType]);
 			if (exchangeRate) {

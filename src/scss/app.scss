@@ -47,14 +47,28 @@
 	border-radius: $radius;
 }
 
+@mixin box-shadow($offset, $blur-radius, $spread-radius, $color){
+	-webkit-box-shadow: $offset $blur-radius $spread-radius $color;
+	   -moz-box-shadow: $offset $blur-radius $spread-radius $color;
+			box-shadow: $offset $blur-radius $spread-radius $color;
+}
 
 * {
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+	height: initial;
+	position: static;
 }
 
 body {
-	margin: 0.5em;
+	@extend html;
+	margin: 0.5em !important;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
 
 	h1 {
 		line-height: 1.1;
@@ -63,6 +77,11 @@ body {
 	}
 
 	.convertor {
+		width: 400px;
+		max-height: 400px;
+		padding: 0.5em;
+		margin: 0.5em;
+		@include box-shadow(0,0, 10px, black);
 
 		.header {
 			font-size: 14px;
@@ -84,18 +103,15 @@ body {
 				}
 
 				input:focus, select:focus{
-					box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+					@include box-shadow(0, 0, 8px, rgba(102,175,233,.6));
 					border-color: #66AFE9;
 					outline: none;
 				}
 			}
 		}
-	}
-}
 
-div {
-	.test {
-		font-size: 50px;
-		font-color: red;
+		.disclaimer {
+			text-align: right;
+		}
 	}
 }
