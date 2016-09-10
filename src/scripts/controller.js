@@ -1,6 +1,6 @@
 var app = angular.module('conversionApp', ['ngMaterial']);
 
-var appCtrl = app.controller('conversionCtrl', function($scope, $q, $window, $mdDialog, exchangeRateService) {
+var appCtrl = app.controller('conversionCtrl', function($scope, $mdDialog, exchangeRateService) {
 
 	$scope.showDisclaimer = function(ev){
 		var exchangeRatePr = exchangeRateService.getExchangeRate('CAD'); 
