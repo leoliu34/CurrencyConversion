@@ -19,7 +19,8 @@ This simple webpage performs a currency conversion using the JSON data from http
 5. Run 'npm install -g karma' to install and karma test runner.
 6. If you are on Linux or Mac, proceed to the next step. On Windows, please install Ruby with Gem such that we can use Sass. [Ruby](http://rubyinstaller.org/downloads/)
 7. After everything is setup, simply run 'grunt' in the root folder.
-8. Open up 'index.html' to view the webpage.
+8. Navigate to http://localhost:6789/ to view the webpage on a static web server (or open up index.html)
+9. Navigate to http://localhost:6789/docs to view the documentations API
 
 ## Grunt Config
 
@@ -31,12 +32,16 @@ Grunt uses the following dependencies:
 4. Sass
 5. Copy
 6. Uglify
+7. Clean
+8. Connect
+9. Ngdocs
 
 These tasks will all be executed when 'grunt' is run.
 
 ## Implementation Details
 
 This web page is designed using AngularJS following its MVC structure in which the controllers also acts as models.
+Documentations are avaliable at http://localhost:6789/docs , generated using Ngdocs
 
 ### Directives
 
@@ -81,7 +86,8 @@ This web page is designed using AngularJS following its MVC structure in which t
 
 1. UglifyJs does not seem to support ES5 syntax such as multi-line html notation '``' so I decided to keep the uglify task and resolved using classic javascript notation '+' because performance is more valued
 2. Html view templates was not used because there was no backend server to link to different template URLs
-3. Unit tests were setup but not completed yet
+3. Unit tests were setup but not completed yet using Karma and Jasmine framework, integrated in Grunt
+
 
 ## Author
 

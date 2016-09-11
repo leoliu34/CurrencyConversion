@@ -1,7 +1,21 @@
 var app = angular.module('conversionApp', ['ngMaterial']);
-
+/**
+ * @ngdoc controller
+ * @name conversionApp.conversionCtrl
+ * @function
+ * @description
+ * Main Controller for conversionApp
+ */
 app.controller('conversionCtrl', function($scope, $mdDialog, exchangeRateService) {
-
+	/**
+     * @ngdoc method
+     * @name conversionApp.conversionCtrl#showDisclaimer
+     * @methodOf conversionApp.conversionCtrl
+     *
+     * @description
+     * Method to popup an angular material dialog when 'disclaimer' is pressed
+     * @param {object} ev Event that is emitted when button is pressed
+     */
 	$scope.showDisclaimer = function(ev){
 		var exchangeRatePr = exchangeRateService.getExchangeRate('CAD'); 
 		exchangeRatePr.then(function (response) {
@@ -23,6 +37,13 @@ app.controller('conversionCtrl', function($scope, $mdDialog, exchangeRateService
 	};
 });
 
+/**
+ * @ngdoc controller
+ * @name conversionApp.dialogCtrl
+ * @function
+ * @description
+ * Controller to pass in data to mdDialog
+ */
 var dialogCtrl = function ($scope, parentData) {
 	$scope.exchangeRateInfo = parentData;
 };

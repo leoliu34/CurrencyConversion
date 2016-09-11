@@ -71,16 +71,43 @@ module.exports = function(grunt) {
   					]
   				}
   			}
-  		}
+  		},
+  		ngdocs: {
+        options: {
+          dest: 'docs',
+          scripts: ['../node_modules/angular/angular.js',
+                    '../node_modules/angular-animate/angular-animate.js',
+                    '../node_modules/angular-aria/angular-aria.js',
+                    '../node_modules/angular-material/angular-material.js'],
+          title: 'Currency Conversion Documentation',
+          html5Mode: false
+        },
+  			api: {
+          src: ['src/scripts/*.js'],
+          title: 'API Documentation'
+        }
+  		},
+      clean: ['docs','app'],
+      connect: {
+        options: {
+          port: 6789,
+          keepalive: true
+        },
+        server: {}
+      }
 	});
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-  	grunt.loadNpmTasks('grunt-contrib-jshint');
-  	grunt.loadNpmTasks('grunt-contrib-watch');
-  	grunt.loadNpmTasks('grunt-contrib-concat');
-  	grunt.loadNpmTasks('grunt-contrib-sass');
-  	grunt.loadNpmTasks('grunt-contrib-copy');
-  	grunt.loadNpmTasks('grunt-karma');
 
-  	grunt.registerTask('default', ['jshint', 'copy', 'sass', 'concat', 'uglify']);
-  	grunt.registerTask('test',['jshint', 'copy', 'sass', 'concat', 'uglify', 'karma']);
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-ngdocs');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+
+	grunt.registerTask('default', ['clean', 'jshint', 'copy', 'sass', 'concat', 'uglify', 'ngdocs', 'connect']);
+	grunt.registerTask('test', ['clean', 'jshint', 'copy', 'sass', 'concat', 'uglify', 'ngdocs', 'karma']);
 };
