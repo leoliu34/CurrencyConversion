@@ -6,8 +6,8 @@ app.controller('currencyFieldCtrl', function($scope) {
 
 	var directive = function () {
 		return {
-			template: '<div class="currency-field col-10 col-m-10"><input type="text" placeholder="0.00"' +
-						'ng-model="currencyValue" ng-readonly="{{id}}!==0"/></div>',
+			template: '<div class="currency-field col-10 col-m-10"><input type="number" placeholder="0.00"' +
+						'ng-model="currencyValue" ng-readonly="{{id}}!==0" step="0.01"/></div>',
 			restrict: 'E',
 			replace: true,
 			scope: {

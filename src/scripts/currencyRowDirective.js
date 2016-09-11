@@ -53,8 +53,8 @@ app.controller('currencyRowCtrl', function($scope, $rootScope, $filter, exchange
 
 	var directive = function () {
 		return {
-			template: '<div class="currency-row"><currency-field currency-value="currentCurrency.value" id={{rowID}}></currency-field>' + 
-			'<currency-dropdown id={{rowID}} currency-type="currentCurrency.data"></currency-dropdown></div>',
+			template: '<div class="currency-row"><form name="currency-form" novalidate><currency-field currency-value="currentCurrency.value" id={{rowID}}></currency-field>' + 
+			'<currency-dropdown id={{rowID}} currency-type="currentCurrency.data"></currency-dropdown></form></div>',
 			restrict: 'E',
 			controller: 'currencyRowCtrl',
 			scope: {}

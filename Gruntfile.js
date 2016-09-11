@@ -6,7 +6,9 @@ module.exports = function(grunt) {
 				separator: '\n'
 			},
 			dist: {
-				src: ['src/**/*.js'],
+				src: [
+					'src/**/*.js',
+					'!src/**/*spec.js'],
 				dest: 'app/<%= pkg.name %>.js',
 			}
 		},
@@ -51,8 +53,23 @@ module.exports = function(grunt) {
   		copy: {
   			main: {
   				files: [
-  					{expand: true, flatten: true, src: ['src/templates/*'], dest: 'app/templates/', filter: 'isFile'}
+  				{expand: true, flatten: true, src: ['src/templates/*'], dest: 'app/templates/', filter: 'isFile'}
   				]
+  			}
+  		},
+  		karma: {  
+  			unit: {
+  				options: {
+  					frameworks: ['jasmine'],
+  					singleRun: false,
+  					browsers: ['PhantomJS'],
+  					files: [
+  					'node_modules/angular/angular.js',
+  					'node_modules/angular-mocks/angular-mocks.js',
+  					'app/homedepotconvert.js',
+  					'src/tests/*.js'
+  					]
+  				}
   			}
   		}
 	});
@@ -62,6 +79,8 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-concat');
   	grunt.loadNpmTasks('grunt-contrib-sass');
   	grunt.loadNpmTasks('grunt-contrib-copy');
+  	grunt.loadNpmTasks('grunt-karma');
 
   	grunt.registerTask('default', ['jshint', 'copy', 'sass', 'concat', 'uglify']);
+  	grunt.registerTask('test',['jshint', 'copy', 'sass', 'concat', 'uglify', 'karma']);
 };

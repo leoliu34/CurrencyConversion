@@ -16,13 +16,15 @@ This simple webpage performs a currency conversion using the JSON data from http
 2. Clone the repository to CurencyConversion folder.
 3. Run 'npm install' within that folder using command line for windows, terminal for Mac and Linux.
 4. Run 'npm install -g grunt-cli' to install the Grunt CLI to run tasks.
-5. If you are on Linux or Mac, proceed to the next step. On Windows, please install Ruby with Gem such that we can use Sass. [Ruby](http://rubyinstaller.org/downloads/)
-6. After everything is setup, simply run 'grunt' in the root folder.
-7. Open up 'index.html' to view the webpage.
+5. Run 'npm install -g karma' to install and karma test runner.
+6. If you are on Linux or Mac, proceed to the next step. On Windows, please install Ruby with Gem such that we can use Sass. [Ruby](http://rubyinstaller.org/downloads/)
+7. After everything is setup, simply run 'grunt' in the root folder.
+8. Open up 'index.html' to view the webpage.
 
 ## Grunt Config
 
 Grunt uses the following dependencies:
+
 1. JsHint
 2. Watch
 3. Concat
@@ -34,7 +36,7 @@ These tasks will all be executed when 'grunt' is run.
 
 ## Implementation Details
 
-This web page is designed using AngularJS following its MVC structure.
+This web page is designed using AngularJS following its MVC structure in which the controllers also acts as models.
 
 ### Directives
 
@@ -65,7 +67,7 @@ This web page is designed using AngularJS following its MVC structure.
 
 1. Uses Angular's $on and $broadcast to emit and receive events
 2. When a model was changed in the input and select tag, an event will be broadcasted.
-3. Upon receiving of event details with $on, currency calcuation will be performed to update the model.
+3. Upon receiving of event details with $on, currency calcuation will be performed to update the model. (Observer pattern)
 (HTTP request data is cached on page using angular's $http option to increase performance)
 
 ## Future To-Dos
@@ -73,7 +75,13 @@ This web page is designed using AngularJS following its MVC structure.
 2. Any changes made to any rows can cause other rows to change value.
 3. Select the date of the currency rate you wish to view.
 4. Add a backend server such as Node to allow html templates to be written in a separate file and used with templateUrl.
-5. 
+5. Add unit tests for each controller functionality
+
+## Notes
+
+1. UglifyJs does not seem to support ES5 syntax such as multi-line html notation '``' so I decided to keep the uglify task and resolved using classic javascript notation '+' because performance is more valued
+2. Html view templates was not used because there was no backend server to link to different template URLs
+3. Unit tests were setup but not completed yet
 
 ## Author
 

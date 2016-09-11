@@ -1,13 +1,11 @@
 var app = angular.module('conversionApp', ['ngMaterial']);
 
-var appCtrl = app.controller('conversionCtrl', function($scope, $mdDialog, exchangeRateService) {
+app.controller('conversionCtrl', function($scope, $mdDialog, exchangeRateService) {
 
 	$scope.showDisclaimer = function(ev){
 		var exchangeRatePr = exchangeRateService.getExchangeRate('CAD'); 
 		exchangeRatePr.then(function (response) {
 			$scope.exchangeRateInfo = response.data;
-			console.log($scope.exchangeRateInfo);
-			console.log($scope.exchangeRateInfo.rates);
 			$mdDialog.show({
 				locals:{parentData: $scope.exchangeRateInfo.rates},   
 				template:'<md-dialog aria-label="Currency In CAD"><md-toolbar><div class="md-toolbar-tools"><h2>Currency In CAD</h2><span flex></span></div></md-toolbar><md-dialog-content><md-list>' +

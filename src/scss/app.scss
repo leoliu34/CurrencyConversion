@@ -91,6 +91,11 @@ body {
 
 		.currency-row {
 
+			.currency-form input.ng-invalid.ng-touched {	
+					border-color: #B94A48;
+					outline: none;
+			}
+
 			.currency-field, .currency-dropdown {
 				margin-right: 0.5em;
 				display: inline;
