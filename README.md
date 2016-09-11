@@ -12,15 +12,17 @@ This simple webpage performs a currency conversion using the JSON data from http
 
 ## Installation
 
-1. Please have Node.JS and NPM installed via [Node.Js](https://nodejs.org/en/download/)
+1. Please have the latest Node.JS and NPM (version 3.10.3 *important*) installed via [Node.Js](https://nodejs.org/en/download/)
 2. Clone the repository to CurencyConversion folder.
-3. Run 'npm install' within that folder using command line for windows, terminal for Mac and Linux.
-4. Run 'npm install -g grunt-cli' to install the Grunt CLI to run tasks.
-5. Run 'npm install -g karma' to install and karma test runner.
-6. If you are on Linux or Mac, proceed to the next step. On Windows, please install Ruby with Gem such that we can use Sass. [Ruby](http://rubyinstaller.org/downloads/)
-7. After everything is setup, simply run 'grunt' in the root folder.
-8. Navigate to http://localhost:6789/ to view the webpage on a static web server (or open up index.html)
-9. Navigate to http://localhost:6789/docs to view the documentations API
+3. Run 'npm install -g grunt-cli' to install the Grunt CLI to run tasks. (If error occurs, try 'npm cache clean' and rerun 'npm install -g grunt-cli')
+4. Run 'npm install -g karma' to install and karma test runner.
+5. Run 'npm install grunt' to install local grunt
+6. Run 'npm install' within that folder using command line for windows, terminal for Mac and Linux. (Could take a while)
+7. If you are on Linux or Mac, proceed to the next step. On Windows, please install Ruby with Gem such that we can use Sass. [Ruby](http://rubyinstaller.org/downloads/)
+8. Run 'gem install sass' to install Sass
+9. After everything is setup, simply run 'grunt' in the root folder. This will start a static web server via grunt task 'connect'. (If failed, delete your node_modules folder and run 'npm install' again)
+10. Navigate to http://localhost:6789/ to view the webpage on a static web server (or open up index.html)
+11. Navigate to http://localhost:6789/docs to view the documentations API
 
 ## Grunt Config
 
